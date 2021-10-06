@@ -15,18 +15,26 @@ alias yt="youtube-dl"
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias open="termux-open"
-#alias connect="nc 192.168.50.214 8000"
+
+alias gs='git status'
+alias gc='git commit'
+alias gp='git push'
+alias ga='git add'
+alias gr='git rm'
+alias gd='git diff'
+alias gl='git log'
+
+alias ip="echo ''; echo "$(ip a | grep /24 | awk '{print $2}')"; echo ''"
+
 
 listen() {
 
 	clear
-
+	ip a | grep /24 | awk '{print $2}'
 	echo -e "IP: "
-	ip a | grep 192.168 | awk '{print $2}'
 
 	nc -lv 9000
 
 
 }
 
-alias ip="echo -e '\n'; ip a | grep /24 | awk '{print $2}'; echo -e '\n'"
