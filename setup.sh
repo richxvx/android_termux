@@ -12,7 +12,7 @@ echo -e "$border \n\n"
 
 termux-setup-storage
 
-read -p "Press enter to start: "
+read -p $'\x0a [*] Press enter to start: '
 
 apt update
 apt upgrade -y
@@ -32,8 +32,9 @@ echo -e "$border \n\n"
 
 ln -s ~/storage/downloads ~/
 ln -s ~/../usr/bin ~/
-ln -s ~/storage/shared/Snapseed
+ln -s ~/storage/shared/Snapseed ~/
 
+echo -e "\n[+] All symlinks added! \n"
 
 # ========== Copying scripts from linux_files repo ===========
 
@@ -53,11 +54,14 @@ echo -e "\t Setting up ZSH"
 echo -e "$border \n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-exit
+
+read -p $'\x0a [*] Press enter to finish setup: '
+echo ""
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 cp ~/android_termux/zshrc ~/.zshrc
 
+echo -e "\n\n Finished! :) \n\n"
 
 exit
