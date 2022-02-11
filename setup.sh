@@ -12,7 +12,8 @@ echo -e "$border \n\n"
 
 termux-setup-storage
 
-read -p "Press enter to start: "
+read -p '[*] Press enter to start: '
+echo ""
 
 apt update
 apt upgrade -y
@@ -27,13 +28,14 @@ cp ~/android_termux/vimrc ~/.vimrc
 # ========== Symlink setup ===========
 
 echo -e "\n\n$border"
-echo -e "\t Setting symlinks"
+echo -e "\t Setting symlinks..."
 echo -e "$border \n\n"
 
 ln -s ~/storage/downloads ~/
 ln -s ~/../usr/bin ~/
-ln -s ~/storage/shared/Snapseed
+ln -s ~/storage/shared/Snapseed ~/
 
+echo -e "\n [+] All symlinks have been added! \n"
 
 # ========== Copying scripts from linux_files repo ===========
 
@@ -54,9 +56,12 @@ echo -e "$border \n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
+read -p $'\x0a [*] Finishing ZSH setup... Press enter: '
+echo ""
 
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
 cp ~/android_termux/zshrc ~/.zshrc
 
+echo -e "\n\n Setup is finished! :) \n\n"
 
 exit
