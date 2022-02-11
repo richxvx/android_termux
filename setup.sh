@@ -4,6 +4,8 @@ border="========================================="
 
 # ========== Initial setup ===========
 
+clear
+
 echo -e "\n\n$border"
 echo -e "\t Initial setup"
 echo -e "$border \n\n"
