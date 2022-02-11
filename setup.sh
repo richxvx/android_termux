@@ -1,8 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# ========== initial setup ===========
+border="========================================="
+
+# ========== Initial setup ===========
+
+echo -e "\n\n$border"
+echo -e "\t Initial setup"
+echo -e "$border \n\n"
 
 termux-setup-storage
+
+read -p "Press enter to start: "
 
 apt update
 apt upgrade -y
@@ -14,30 +22,39 @@ pip3 install youtube-dl -U
 
 cp ~/android_termux/vimrc ~/.vimrc
 
+# ========== Symlink setup ===========
 
-# ========== symlinks to most used directories ===========
-cd ~/
+echo -e "\n\n$border"
+echo -e "\t Setting symlinks"
+echo -e "$border \n\n"
 
 ln -s ~/storage/downloads ~/
 ln -s ~/../usr/bin ~/
+ln -s ~/storage/shared/Snapseed
 
 
-# ========== copy scripts from my main repo ===========
+# ========== Copying scripts from linux_files repo ===========
 
-git clone https://github.com/richxvx/linux_files.git ~/
+echo -e "\n\n$border"
+echo -e "\t Copying scripts from main repo"
+echo -e "$border \n\n"
+
+git clone https://github.com/richxvx/linux_files.git ~/linux_files
 
 cp ~/linux_files/scripts/* ~/bin
 
 
-# ========== setup oh-my-zsh ===========
+# ========== Setup oh-my-zsh ===========
+
+echo -e "\n\n$border"
+echo -e "\t Setting up ZSH"
+echo -e "$border \n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-cp ~/android_termux/zshrc ~/.zshrc
-
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
-
+cp ~/android_termux/zshrc ~/.zshrc
 
 
 exit
