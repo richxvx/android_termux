@@ -13,6 +13,7 @@ echo -e "$border \n\n"
 termux-setup-storage
 
 read -p $'\x0a [*] Press enter to start: '
+echo ""
 
 apt update
 apt upgrade -y
