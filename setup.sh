@@ -55,6 +55,7 @@ echo -e "\t Setting up ZSH"
 echo -e "$border \n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit
 
 read -p $'\x0a [*] Finishing ZSH setup... Press enter: '
 echo ""
